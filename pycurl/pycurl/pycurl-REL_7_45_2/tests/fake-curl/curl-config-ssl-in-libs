@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# A curl-config that returns -lssl in --libs but not in --static-libs
+
+output=
+
+while test -n "$1"; do
+  case "$1" in
+  --libs)
+    echo '-lcurl -lssl'
+    ;;
+  --features)
+    echo 'SSL'
+    ;;
+  esac
+  shift
+done
